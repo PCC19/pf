@@ -1,0 +1,38 @@
+ft_itoa
+ft_itoa_itoa_base
+ft_strjoin
+ft_calloc
+malloc
+
+
+
+1 xxxxxxx
+2 xxxxxxxxxxxxxxxxxx
+3 xxxxxxxxxxxxxxx
+4 xxxxxx
+5 
+
+cat *.c >> arq
+cat *.c | grep -E "^int|^char|^void" | wc -l
+cat *.c | grep -E "^int|^char|^void" |awk -F ',' '{print NF-1, NR}'  
+
+faz grep (int | void | char) terminado em )
+conta virgulas + 1
+
+cat *.c | grep -E "^char|^int|^void" lixo | awk -F ',' '{print NF}' | sort | uniq -c | cut -c1-4 | paste -sd+ - | bc
+
+conta quantas funcoes:
+cat *.c | grep -E "^char|^int|^void|^static|^unsigned" | wc -l 
+linhas sem header e includes
+cat *.c | grep -Ev '^#|^//*' | wc -l
+
+conta quantidade de funcoes por parametro
+cat *.c | grep -E "^char|^int|^void|^static|^unsigned" | awk -F ',' '{print NF}' | sort | uniq -c
+
+conta arquivos
+conta linhas
+conta funcoes
+conta funcoes por parametro
+calcula media de linhas / funcoa
+
+

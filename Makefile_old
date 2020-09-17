@@ -1,0 +1,11 @@
+main:	main.c lib 
+	gcc -g -Wall -Wextra -Werror -o main main.c ./libft/libft.a ./libftprintf/libftprintf.a
+	./main
+
+lib:
+	rm -f ./libft/libft.a
+	rm -f ./libftprintf/libftprintf.a
+	make -C ./libftprintf
+	make -C ./libft
+
+all:	main lib
