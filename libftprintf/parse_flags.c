@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 19:08:15 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/16 00:18:37 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/17 21:05:38 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int parse_num(char **s,va_list arg, struct s_fs *fs)
 {
 	int aux;
 	
-	if (ft_is_in(**s,"*1234567890")==0)
+	/*if (ft_is_in(**s,"*1234567890")==0)
 		aux = -1;
-	else
+	else*/
 		aux = 0;
 	while(ft_is_in(**s,"*1234567890"))
 	{

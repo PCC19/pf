@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 15:36:29 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/17 15:07:51 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/20 18:19:29 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ struct s_fs {
 	int precision;
 	int length;
 	char conversion;
+	int nw;
+	int np;
 	int flag_printa_zero;
 	int flag_ast_neg;
-	char padw_char;
-	char padp_char;
 	int flag_tem_sinal;
 };
 
@@ -65,6 +65,7 @@ int parse_num(char **s,va_list arg, struct s_fs *fs);
 int parse_length(struct s_fs *fs,char **s);
 int parse_conversion(struct s_fs *fs,char **s);
 int parse_fs(struct s_fs *fs, char **s, va_list arg);
+void ft_print_pads(int tipo_pad, struct s_fs *fs);
 void	print_sinal(int sinal);
 void print_n_chars(int n, char c);
 void print_string(char *s);

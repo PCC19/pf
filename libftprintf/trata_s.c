@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 12:09:50 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/15 12:52:20 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/20 18:56:52 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ void trata_s(va_list argumentos, int *conta, struct s_fs *fs)
 	else
 		pp = (char* )va_arg(argumentos,wchar_t *);
 			//print_fs(*fs);
+	if (pp == NULL)
+		pp = "(null)";
 	prec = (int)ft_strlen(pp);
 	p = malloc(sizeof(char)*(prec+1));
-	fs->precision = ft_max(fs->precision, 0);
-	if (fs->precision > 0)
+//		print_fs(*fs);
+	if (fs->ponto && !fs->flag_ast_neg)
 		prec = ft_min((int)ft_strlen(pp), fs->precision);
 	//p = malloc(sizeof(pp)+1);
 	ft_strlcpy(p,pp,prec+1);

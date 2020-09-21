@@ -10,7 +10,7 @@
 #include <math.h>
 #include <stdio.h>
 
-#define PRINT printf
+//#define PRINT printf
 //#define PRINT ft_printf
 
 void printBits(size_t const size, void const * const ptr)
@@ -69,8 +69,12 @@ int main(void)
 		//ft_printf("Teste ---> %d\n", ft_printf(fs,teste));
 
 
-	//printf("pf: %d\n", l);
-	//ft_printf("ft: %d\n", l);
+	//printf("pf: |%0*.*u|\n",1,0,0);
+	//ft_printf("ft: |%0*.*u|\n",1,0,0);
+
+	printf(" --- Return : %d\n", printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
+	ft_printf(" --- Return : %d\n", ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
+	return 0;
 
 	//ft_printf("ft: %d\n",l);
 	//printf("pf: %d\n",l);
@@ -250,25 +254,6 @@ int main(void)
 // ======================================================
 */
 
-	printf("pf:|%d|\n",0);
-	printf("pf:|%.d|\n",0);
-	printf("pf:|%.0d|\n",0);
-	printf("=========\n");
-	printf("pf:|%.d|\n",0);
-	printf("pf:|%.0d|\n",0);
-	printf("pf:|%0.d|\n",0);
-	printf("pf:|%0.d|\n",0);
-
-	printf("pf:|%.d|\n",123);
-	printf("pf:|%.0d|\n",123);
-	printf("pf:|%0.d|\n",123);
-	printf("pf:|%0.d|\n",123);
-
-
-	printf("pf:|%.d|\n",-123);
-	printf("pf:|%.0d|\n",-123);
-	printf("pf:|%0.d|\n",-123);
-	printf("pf:|%0.d|\n",-123);
 
 	char *teste[100];
 	int x;
@@ -278,51 +263,89 @@ int main(void)
 	teste[1] = "|%0*.*d|   :";
 	teste[2] = "|% *.*d|   :";
 	teste[3] = "|%+*.*d|   :";
+	teste[4] = "|%0+*.*d|   :";
+
+	teste[5] = "|%*d|   :";
+	teste[6] = "|%0*d|   :";
+	teste[7] = "|% *d|   :";
+	teste[8] = "|%+*d|   :";
+	teste[9] = "|%0+*d|   :";
+
+	teste[10] = "|%.*d|   :";
+	teste[11] = "|%0.*d|   :";
+	teste[12] = "|% .*d|   :";
+	teste[13] = "|%+.*d|   :";
+	teste[14] = "|%0+.*d|   :";
 	
 	int xx[10];
 	xx[0] = 0;
 	xx[1] = 123;
 	xx[2] = -123;
+	
+	int ii = 0;
 
-	j = 0;
 	for (wid = -6; wid < 7; wid++)
 	{
 
 		for (prec = -6;prec < 7; prec ++)
+		//for (prec = 0;prec < 1; prec ++)
 		{
-			i = 0;
-			for (j = 0; j < 3; j++)
-			{	
-				PRINT("\t\t\tn: %d wid:%d prec:%d\t",PRINT(teste[i],wid,prec,xx[j])-6,wid,prec);
-				PRINT("   %s   ",teste[i]);
-				PRINT("\n");
+			for (ii = 0; ii < 15; ii ++)
+			{
+				for (j = 0; j < 3; j++)
+				{	
+					if (ii < 5)
+						PRINT("\t\t\tn: %d w:%d p:%d\t",PRINT(teste[ii],wid,prec,xx[j])-6,wid,prec);
+					else
+					{
+						if (ii < 10)
+							PRINT("\t\t\tn: %d w:%d p:_\t",PRINT(teste[ii],wid,xx[j])-6,wid);
+						else
+							PRINT("\t\t\tn: %d w:_ p:%d\t",PRINT(teste[ii],prec,xx[j])-6,prec);
+					}
+					PRINT("   %s   ",teste[ii]);
+					PRINT("\n");
+				}
+				if ((ii+1) % 5== 0)
+					PRINT("\n");
 			}
-			i++;
-			for (j = 0; j < 3; j++)
-			{	
-				PRINT("\t\t\tn: %d wid:%d prec:%d\t",PRINT(teste[i],wid,prec,xx[j])-6,wid,prec);
-				PRINT("   %s   ",teste[i]);
-				PRINT("\n");
-			}
-			i++;
-			for (j = 0; j < 3; j++)
-			{	
-				PRINT("\t\t\tn: %d wid:%d prec:%d\t",PRINT(teste[i],wid,prec,xx[j])-6,wid,prec);
-				PRINT("   %s   ",teste[i]);
-				PRINT("\n");
-			}
-			i++;
-			for (j = 0; j < 3; j++)
-			{	
-				PRINT("\t\t\tn: %d wid:%d prec:%d\t",PRINT(teste[i],wid,prec,xx[j])-6,wid,prec);
-				PRINT("   %s   ",teste[i]);
-				PRINT("\n");
-			}
-			i++;
-			PRINT("\n--------\n");
+			PRINT("---------------------------\n");
 		}
+		PRINT("\n========\n");
 	}
+
+
+/*
+	teste[4] = "|%x|   :";
+	xx[4] = 8;
+	unsigned int xxx[10];
+	xxx[4] = 0xfffffff4;
+//	char *xxx;
+//	xxx = "abcdefghijklmnop";
+//	xxx = 'c';
+*/
+/*	printf("\n////////////////////////\n");
+	printf("\t\t\tn: %d wid: prec:\t",printf(teste[4],xxx[4])-6);
+	printf("   %s   ",teste[4]);
+	printf("\n");
+
+	ft_printf("\t\t\tn: %d wid: prec:\t",printf(teste[4],xxx[4])-6);
+	ft_printf("   %s   ",teste[4]);
+	ft_printf("\n");
+*/
+/*
+	ft_printf(" --- Return : %d\n", ft_printf("%i\n%d\n%d\n%d\n%d\n%s\n%c\n%d\n%u\n%x\n%X", i, j, k, l, m, n, c, c, j, j, j)); //T2
+	PRINT(" --- Return : %d\n", PRINT("%i,%d,%d,%d,%d,%s,%c,%d,%u,%x,%X", i, j, k, l, m, n, c, c, j, j, j)); //T2
+
+
+
+*/
+
+	ft_printf("ft:%0*d\n",4,-12);
+	printf("pf:%0*d\n",4,-12);
+	printf("============\n");
 }
+
 /*
 	PRINT("%3d\n",0);
 	PRINT("% 3d\n",0);

@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 15:45:03 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/10 14:22:38 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/20 18:48:00 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -26,7 +26,7 @@ int ft_printf(const char *string, ...)
 	int conta;
 	char *str;
 	char *aux;
-	struct s_fs ppp;
+	struct s_fs fs;
 	
 	str = (char *) malloc(sizeof(char)*ft_strlen(string)+1);
 	ft_strlcpy(str,string,ft_strlen(string)+1);
@@ -42,35 +42,32 @@ int ft_printf(const char *string, ...)
 		if (*str == '%')
 		{
 			str++;
-			// ===========
-			// Inserir bloco para capturar todas flags em uma struct antes de comecar a fazer os tratamentos.
-				init_fs(&ppp);
-	//				printf("==============\n");
-	//				printf("antes parse: \n");
-	//				print_fs(ppp);
-				parse_fs(&ppp,&str,argumentos);
-	//				printf("\nDepois parse: \n");
-	//				print_fs(ppp);
-	//				printf("%s\n",string);
+			if (*str == '%')
+			{
+				ft_putchar_fd(*str,1);
+				conta++;
+			}
+			init_fs(&fs);
+			parse_fs(&fs,&str,argumentos);
 			// ===========
 			if (*str == 'c')
-				trata_c(argumentos, &conta, &ppp);
+				trata_c(argumentos, &conta, &fs);
 			if (*str == 's')
-				trata_s(argumentos, &conta, &ppp);
+				trata_s(argumentos, &conta, &fs);
 			if (*str == 'd' || *str == 'i')
-				trata_d(argumentos, &conta, &ppp);
+				trata_d(argumentos, &conta, &fs);
 			if (*str == 'u')
-				trata_u(argumentos, &conta, &ppp);
+				trata_u(argumentos, &conta, &fs);
 			if (*str == 'x' || *str == 'X')
-				trata_x(argumentos, &conta, &ppp);
+				trata_x(argumentos, &conta, &fs);
 			if (*str == 'p')
-				trata_p(argumentos, &conta, &ppp);
+				trata_p(argumentos, &conta, &fs);
 			if (*str == 'n')
-				trata_n(argumentos, &conta, &ppp);
+				trata_n(argumentos, &conta, &fs);
 			if (*str == 'f')
-				trata_f(argumentos, &conta, &ppp);
+				trata_f(argumentos, &conta, &fs);
 			if (*str == 'e')
-				trata_e(argumentos, &conta, &ppp);
+				trata_e(argumentos, &conta, &fs);
 		}
 		else
 		{	

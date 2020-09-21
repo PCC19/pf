@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 15:12:59 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/15 12:05:42 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/20 18:18:02 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ void trata_u(va_list argumentos, int *conta, struct s_fs *fs)
 {
 	long long unsigned int p;
 	char *num;
-	int nw;
-	int np;
-	int sig;
 
 	num = NULL;
 	// igual trata_d porem ignorando tratamento de sinal
@@ -43,31 +40,31 @@ void trata_u(va_list argumentos, int *conta, struct s_fs *fs)
 	num = ft_itoa((unsigned)p);
 	if (p == 0 && fs->flag_printa_zero == 0) 
 		*num = 0;
-	//sig = (p <0 || fs->sinal !=0) ? 1 : 0;
-	sig = 0;
-	// calcula pad do precision
-	fs->precision = ft_max(fs->precision, 0);
-	np = ft_max((fs->precision - (int)ft_strlen(num)),0);
-	// calcula pad do width
-	//nw = ft_max((fs->width - MAX(fs->precision,(int)ft_strlen(num))),0);
-	nw = ft_max(fs->width - ((int)ft_strlen(num) + np + sig), 0);
-	//debug("num: %s  np: %d   nw: %d",num,np,nw);
-	// se jus = 0 imprime pads antes
-	if (fs->jus == 0)
-		print_n_chars(nw,fs->pad);
-	// imprime sinal
-	//if (p<0)
-	//	ft_putchar_fd('-',1);
-	//else
-	//	print_sinal(fs->sinal);
+	// calcula sinal / prefixo
+	fs->flag_tem_sinal = 0;
+	// calcula n pad do precision
+	fs->np = ft_max((fs->precision - (int)ft_strlen(num)),0);
+	// calcula n pad do width
+	fs->nw = ft_max(fs->width - ((int)ft_strlen(num) + fs->np + fs->flag_tem_sinal), 0);
+//		printf("num: %s  fs->np: %d   fs->nw: %d  sig: %d\n",num,fs->np,fs->nw,fs->flag_tem_sinal);
+	//	print_fs(*fs);
+	
+	// PAD W ANTES DO SINAL
+	ft_print_pads(0, fs);
+
+
+	// PAD W APOS O SINAL
+	ft_print_pads(1, fs);
 	// imprime pad do precision
-	print_n_chars(np,'0');
+	ft_print_pads(2, fs);
 	// imprime num
 	print_string(num);
 	// imprime pad depois
-	if (fs->jus == 1)
-		print_n_chars(nw,' ');
+	ft_print_pads(3, fs);
+	//if (fs->jus == 1)
+	//	print_n_chars(fs->nw,' ');//' '
 	// atualiza contagem
-	(*conta) += ft_strlen(num) + sig + nw + np;
+	(*conta) += ft_strlen(num) + fs->flag_tem_sinal + fs->nw + fs->np;
+//		printf("\t\t\tconta: %lu\n",(ft_strlen(num) + fs->flag_tem_sinal + fs->nw + fs->np));
 	free(num);
 }

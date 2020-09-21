@@ -6,7 +6,7 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 15:44:48 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/17 15:24:14 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/20 14:24:52 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -22,10 +22,10 @@ void init_fs(struct s_fs *p)
 	p->precision = 0;
 	p->length = 0;
 	p->conversion = '\0';
+	p->nw = 0;
+	p->np = 0;
 	p->flag_printa_zero = 1;
 	p->flag_ast_neg = 0;
-	p->padw_char = ' ';
-	p->padp_char = '0';
 	p->flag_tem_sinal = 1;
 }
 
