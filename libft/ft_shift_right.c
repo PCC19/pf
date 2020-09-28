@@ -6,21 +6,21 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 12:41:57 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/08 12:44:57 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/26 18:36:08 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_shift_right(int *arr, int n)
+void	ft_shift_right(int *arr, int n)
 {
 	int i;
-	
+
 	i = 0;
-	while(i<n-1)
+	while (i < n - 1)
 	{
-		arr[i] = arr[i+1];
+		arr[i] = arr[i + 1];
 		i++;
 	}
-	arr[n-1] = 0;
+	arr[n - 1] = 0;
 }

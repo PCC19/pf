@@ -4,15 +4,13 @@ FLAGS=-Wall -Wextra -Werror -g -c
 
 HEADER=ft_printf.h
 
-SRCS= ft_printf.c init_fs.c parse_flags.c parse_fs.c trata_c.c\
-		trata_d.c trata_n.c trata_p.c trata_s.c trata_u.c trata_x.c utils1.c\
-		utils2.c ftoa_int.c ftoa_frac.c ftoa.c trata_f.c trata_e.c ft_round.c\
-		funcoes_debug.c
+SRCS= ft_printf.c ft_choose_conv.c ft_init_fs.c ft_parse_flags.c ft_parse_fs.c ft_conv_c.c\
+		ft_conv_d.c ft_conv_n.c ft_conv_p.c ft_conv_s.c ft_conv_u.c ft_conv_x.c ft_utils1.c\
+		ft_utils2.c ft_ftoa_int.c ft_ftoa_frac.c ft_ftoa.c ft_conv_f.c ft_conv_e.c ft_round.c
 
-OBJ= ft_printf.o init_fs.o parse_flags.o parse_fs.o trata_c.o\
-		trata_d.o trata_n.o trata_p.o trata_s.o trata_u.o trata_x.o utils1.o\
-		utils2.o ftoa_int.o ftoa_frac.o ftoa.o trata_f.o trata_e.o ft_round.o\
-		funcoes_debug.o
+OBJ= ft_printf.o ft_choose_conv.o ft_init_fs.o ft_parse_flags.o ft_parse_fs.o ft_conv_c.o\
+		ft_conv_d.o ft_conv_n.o ft_conv_p.o ft_conv_s.o ft_conv_u.o ft_conv_x.o ft_utils1.o\
+		ft_utils2.o ft_ftoa_int.o ft_ftoa_frac.o ft_ftoa.o ft_conv_f.o ft_conv_e.o ft_round.o
 
 LIBS= ../libft/libft.a
 

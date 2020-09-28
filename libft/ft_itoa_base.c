@@ -6,14 +6,14 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 12:53:27 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/11 16:31:33 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/26 18:32:03 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int		tamanho_da_base(char *base)
+int					tamanho_da_base(char *base)
 {
 	int i;
 
@@ -23,10 +23,10 @@ int		tamanho_da_base(char *base)
 	return (i);
 }
 
-static long int		ft_conta(long unsigned int n, long unsigned int nb)
+static long int		ft_conta(long long unsigned int n, long unsigned int nb)
 {
-	long unsigned int i;
-	long unsigned int a;
+	long long unsigned int i;
+	long long unsigned int a;
 
 	a = n;
 	i = 1;
@@ -38,17 +38,17 @@ static long int		ft_conta(long unsigned int n, long unsigned int nb)
 	return (i);
 }
 
-char			*ft_itoa_base(long int n, char *base)
+char				*ft_itoa_base(long long int n, char *base)
 {
-	int				i;
-	char			*c;
-	int				s;
-	long unsigned int	nn;
-	long unsigned int	nb;
+	int						i;
+	char					*c;
+	int						s;
+	long long unsigned int	nn;
+	long long unsigned int	nb;
 
-	nn = (long unsigned int)n; 
-	nb = (long unsigned int)tamanho_da_base(base);
-	i = ft_conta(nn,nb);
+	nn = (long long unsigned int)n;
+	nb = (long long unsigned int)tamanho_da_base(base);
+	i = ft_conta(nn, nb);
 	s = 0;
 	c = (char *)malloc(i + 1 + s);
 	if (c == NULL)
@@ -64,4 +64,3 @@ char			*ft_itoa_base(long int n, char *base)
 		c[0] = '-';
 	return (c);
 }
-

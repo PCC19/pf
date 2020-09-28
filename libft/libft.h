@@ -6,7 +6,7 @@
 /*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:27:14 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/11 16:04:30 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/26 18:49:51 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,16 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 ** ========== MEUS EXTRAS NAO OFICIAIS =========
 */
 
-void    ft_putchar(char c);
-char			*ft_itoa_base(long int n, char *base);
-void ft_print_bit(int x);
-void ft_append_str(char *s1, char *s2);
-int ft_is_in(char c, char *set);
-int ft_max(int a, int b);
-int ft_min(int a, int b);
-void ft_shift_left(int *arr, int n);
-void ft_shift_right(int *arr, int n);
-int ft_abs(int x);
-int ft_get_bit(int x, int n);
+void			ft_putchar(char c);
+char			*ft_itoa_base(long long int n, char *base);
+void			ft_print_bit(int x);
+void			ft_append_str(char *s1, char *s2);
+int				ft_is_in(char c, char *set);
+int				ft_max(int a, int b);
+int				ft_min(int a, int b);
+void			ft_shift_left(int *arr, int n);
+void			ft_shift_right(int *arr, int n);
+int				ft_abs(int x);
+int				ft_get_bit(int x, int n);
 
 #endif

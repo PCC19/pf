@@ -6,7 +6,7 @@
 /*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 18:50:46 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/09 17:30:08 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/26 18:36:30 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	int len;
 
 	if (!s)
-		return(0);
+		return (0);
 	len = 0;
 	while (s[len] != '\0')
 		len++;

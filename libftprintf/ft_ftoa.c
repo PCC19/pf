@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_bit.c                                     :+:      :+:    :+:   */
+/*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 20:04:21 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/26 18:34:03 by pcunha           ###   ########.fr       */
+/*   Created: 2020/09/28 11:13:10 by pcunha            #+#    #+#             */
+/*   Updated: 2020/09/28 11:13:14 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_print_bit(int x)
+char	*ft_ftoa(float f, int precision)
 {
-	int i;
+	char	*str_i;
+	char	*str_f;
+	char	*str;
+	char	*tmp;
+	char	*tmp2;
 
-	i = sizeof(x) * 8 - 1;
-	while (i >= 0)
-	{
-		ft_putchar_fd((x >> i & 1) + '0', 1);
-		i--;
-	}
+	str_i = ft_ftoa_int(f);
+	str_f = ft_ftoa_frac(f);
+	if (precision == -1)
+		precision = 6;
+	tmp = ft_round(&str_i, str_f, precision);
+	str = ft_strjoin(str_i, ".");
+	free(str_i);
+	tmp2 = ft_strjoin(str, tmp);
+	free(str);
+	str = tmp2;
+	free(tmp);
+	return (str);
 }

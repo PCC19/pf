@@ -6,22 +6,22 @@
 /*   By: pcunha <pcunha@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 12:39:36 by pcunha            #+#    #+#             */
-/*   Updated: 2020/09/08 12:39:42 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/26 18:28:52 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_is_in(char c, char *set)
+int	ft_is_in(char c, char *set)
 {
 	int i;
 
 	i = 0;
-	while(set[i])
+	while (set[i])
 	{
 		if (c == set[i])
-			return 1;
+			return (1);
 		i++;
 	}
-	return 0;
+	return (0);
 }

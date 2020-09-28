@@ -6,7 +6,7 @@
 /*   By: pcunha <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 18:38:27 by pcunha            #+#    #+#             */
-/*   Updated: 2020/08/18 11:21:14 by pcunha           ###   ########.fr       */
+/*   Updated: 2020/09/26 18:34:28 by pcunha           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	ft_putnbr_base(int nbr, char *base)
 		else
 		{
 			d = base[n];
-			//ft_putchar(d);
 			write(1, &d, 1);
 		}
 	}

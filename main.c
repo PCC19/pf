@@ -15,6 +15,7 @@
 
 void printBits(size_t const size, void const * const ptr)
 {
+	// size em bytes
     unsigned char *b = (unsigned char*) ptr;
     unsigned char byte;
     int i, j;
@@ -68,13 +69,15 @@ int main(void)
 		//ft_printf(fs,teste);
 		//ft_printf("Teste ---> %d\n", ft_printf(fs,teste));
 
-
-	//printf("pf: |%0*.*u|\n",1,0,0);
-	//ft_printf("ft: |%0*.*u|\n",1,0,0);
-
-	printf(" --- Return : %d\n", printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
-	ft_printf(" --- Return : %d\n", ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
+	printf("pf: |%f|\n",573.924);
+	ft_printf("ft_pf: |%f|\n",573.924);
 	return 0;
+
+	//printf("pf: |%-05%raulo|\n");
+	//ft_printf("ft: |%-05%raulo|\n");
+
+//	printf(" --- Return : %d\n", printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
+	//ft_printf(" --- Return : %d\n", ft_printf("%-2s, %.s, %-4s, %-2.4s, %-8.12s, %3s, %8s, %---2s, %.*s, %.0s, %.1s, %.2s, %.4s, %.8s", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -2, NULL, NULL, NULL, NULL, NULL, NULL));
 
 	//ft_printf("ft: %d\n",l);
 	//printf("pf: %d\n",l);
@@ -259,35 +262,35 @@ int main(void)
 	int x;
 	int wid, prec;
 
-	teste[0] = "|%*.*d|   :";
-	teste[1] = "|%0*.*d|   :";
-	teste[2] = "|% *.*d|   :";
-	teste[3] = "|%+*.*d|   :";
-	teste[4] = "|%0+*.*d|   :";
+	teste[0] = "|%*.*e|   :";
+	teste[1] = "|%0*.*e|   :";
+	teste[2] = "|% *.*e|   :";
+	teste[3] = "|%+*.*e|   :";
+	teste[4] = "|%0+*.*e|   :";
 
-	teste[5] = "|%*d|   :";
-	teste[6] = "|%0*d|   :";
-	teste[7] = "|% *d|   :";
-	teste[8] = "|%+*d|   :";
-	teste[9] = "|%0+*d|   :";
+	teste[5] = "|%*e|   :";
+	teste[6] = "|%0*e|   :";
+	teste[7] = "|% *e|   :";
+	teste[8] = "|%+*e|   :";
+	teste[9] = "|%0+*e|   :";
 
-	teste[10] = "|%.*d|   :";
-	teste[11] = "|%0.*d|   :";
-	teste[12] = "|% .*d|   :";
-	teste[13] = "|%+.*d|   :";
-	teste[14] = "|%0+.*d|   :";
+	teste[10] = "|%.*e|   :";
+	teste[11] = "|%0.*e|   :";
+	teste[12] = "|% .*e|   :";
+	teste[13] = "|%+.*e|   :";
+	teste[14] = "|%0+.*e|   :";
 	
-	int xx[10];
-	xx[0] = 0;
-	xx[1] = 123;
-	xx[2] = -123;
+	float xx[10];
+	xx[0] = 0.0;
+	xx[1] = 123.456;
+	xx[2] = -123.456;
 	
 	int ii = 0;
 
-	for (wid = -6; wid < 7; wid++)
+	for (wid = -8; wid < 9; wid+=2)
 	{
 
-		for (prec = -6;prec < 7; prec ++)
+		for (prec = -8;prec < 9; prec+=2)
 		//for (prec = 0;prec < 1; prec ++)
 		{
 			for (ii = 0; ii < 15; ii ++)
@@ -295,13 +298,13 @@ int main(void)
 				for (j = 0; j < 3; j++)
 				{	
 					if (ii < 5)
-						PRINT("\t\t\tn: %d w:%d p:%d\t",PRINT(teste[ii],wid,prec,xx[j])-6,wid,prec);
+						PRINT("\tn: %d w:%d p:%d\t",PRINT(teste[ii],wid,prec,xx[j])-6,wid,prec);
 					else
 					{
 						if (ii < 10)
-							PRINT("\t\t\tn: %d w:%d p:_\t",PRINT(teste[ii],wid,xx[j])-6,wid);
+							PRINT("\tn: %d w:%d p:_\t",PRINT(teste[ii],wid,xx[j])-6,wid);
 						else
-							PRINT("\t\t\tn: %d w:_ p:%d\t",PRINT(teste[ii],prec,xx[j])-6,prec);
+							PRINT("\tn: %d w:_ p:%d\t",PRINT(teste[ii],prec,xx[j])-6,prec);
 					}
 					PRINT("   %s   ",teste[ii]);
 					PRINT("\n");
@@ -313,6 +316,8 @@ int main(void)
 		}
 		PRINT("\n========\n");
 	}
+return 0;
+}
 
 
 /*
@@ -341,10 +346,6 @@ int main(void)
 
 */
 
-	ft_printf("ft:%0*d\n",4,-12);
-	printf("pf:%0*d\n",4,-12);
-	printf("============\n");
-}
 
 /*
 	PRINT("%3d\n",0);
